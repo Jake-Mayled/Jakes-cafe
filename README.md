@@ -96,11 +96,6 @@ src/
     └── global.css           # design tokens + all component styles
 ```
 
-## Design source
-
-Implemented from the ["Jake's Cafe" Claude Design project](https://claude.ai/design/p/a6470357-a316-4671-ace6-34c18a1dd37d)
-— camera positions, scene geometry, palette, copy, and behaviour are ported 1:1.
-
 ### Configuration
 
 `src/config.ts` exposes the two design options:
