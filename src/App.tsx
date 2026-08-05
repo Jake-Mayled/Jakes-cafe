@@ -4,9 +4,8 @@ import type { ReactElement } from 'react';
 import { CafeAmbience } from './audio/ambience';
 import { CAFE_NAME, NEON_COLOR } from './config';
 import { CAFE_PROGRESS, CAFE_READY, CAFE_SECTION } from './events';
-import type { CafeSceneElement } from './scene/CafeSceneElement';
-import type { ViewIndex } from './types';
-import { CafeSceneView } from './ui/CafeSceneView';
+import { CafeScene } from './scene/CafeScene';
+import type { CafeSceneApi, ViewIndex } from './types';
 import type { AppActions } from './ui/component';
 import { FlatView } from './ui/FlatView';
 import { Hud } from './ui/Hud';
@@ -20,7 +19,7 @@ export function App(): ReactElement {
   const [store] = useState(() => new Store<AppState>(INITIAL_STATE));
   const [ambience] = useState(() => new CafeAmbience());
 
-  const sceneRef = useRef<CafeSceneElement>(null);
+  const sceneRef = useRef<CafeSceneApi>(null);
   const state = useAppStore(store);
 
   const actions = useMemo<AppActions>(
@@ -93,7 +92,7 @@ export function App(): ReactElement {
 
   return (
     <div className="app-shell">
-      <CafeSceneView sceneRef={sceneRef} />
+      <CafeScene ref={sceneRef} />
       <Loader state={state} onEnter={actions.enter} />
       <Hud state={state} onToggleMute={actions.toggleMute} onOpenFlat={actions.openFlat} />
       <StopsNav state={state} onGoTo={actions.goTo} />
