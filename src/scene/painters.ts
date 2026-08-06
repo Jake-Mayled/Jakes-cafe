@@ -28,7 +28,7 @@ export function paintFascia(
   ctx.shadowBlur = 0;
   ctx.font = `500 ${h * 0.14}px ${F}`;
   ctx.fillStyle = '#c8a24a';
-  ctx.fillText('ESPRESSO  ·  CODE  ·  REPEAT', w / 2, h * 0.76);
+  ctx.fillText('COFFEE  ·  CODE  ·  REPEAT', w / 2, h * 0.76);
 }
 
 export const paintMenuBoard: Painter = (ctx, w, h) => {
