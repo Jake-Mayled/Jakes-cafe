@@ -49,7 +49,7 @@ const CHAIR_LEGS: readonly [x: number, z: number][] = [
 
 const POSTERS: readonly [bg: string, fg: string, title: string, sub: string, z: number][] = [
   ['#2e4a5c', '#f3e6cf', 'AI JAVA\nEVALUATOR', 'automated marking', -0.985],
-  ['#a2542f', '#f3e6cf', 'DEMENTIA\nTESTER', 'cognitive care app', -2.5],
+  ['#a2542f', '#f3e6cf', 'AOCA SMART\nAPP', 'cognitive health', -2.5],
   ['#3c5c3a', '#f3e6cf', 'MORE\nBREWING', 'coming soon', -4.015],
 ];
 

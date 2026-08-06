@@ -28,7 +28,7 @@ export function paintFascia(
   ctx.shadowBlur = 0;
   ctx.font = `500 ${h * 0.14}px ${F}`;
   ctx.fillStyle = '#c8a24a';
-  ctx.fillText('ESPRESSO  ·  CODE  ·  GOOD CHAT', w / 2, h * 0.76);
+  ctx.fillText('ESPRESSO  ·  CODE  ·  REPEAT', w / 2, h * 0.76);
 }
 
 export const paintMenuBoard: Painter = (ctx, w, h) => {
@@ -84,6 +84,7 @@ export const paintChalkboard: Painter = (ctx, w, h) => {
   ctx.fillText("today's stack", w / 2, h * 0.15);
   const rows = [
     'TypeScript · React',
+    'Three.js · R3F · Drei',
     'React Native · Expo',
     'Node · Python · SQL',
     'AWS · Vercel · CI/CD',
@@ -91,7 +92,7 @@ export const paintChalkboard: Painter = (ctx, w, h) => {
   ];
   ctx.font = `400 ${w * 0.062}px ${FH}`;
   rows.forEach((row, i) => {
-    ctx.fillText(row, w / 2, h * (0.28 + i * 0.117));
+    ctx.fillText(row, w / 2, h * (0.28 + i * 0.1));
   });
   ctx.fillStyle = '#f0c987';
   ctx.font = `700 ${w * 0.07}px ${FH}`;
