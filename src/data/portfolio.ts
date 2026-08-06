@@ -35,8 +35,8 @@ export const SKILLS: readonly SkillGroup[] = [
   },
   {
     group: 'FRONT-END',
-    items: ['React', 'React Router', 'React Native', 'Expo', 'Figma'],
-    flat: 'React, React Router, React Native, Expo, Figma',
+    items: ['React', 'React Router', 'React Native', 'Expo', 'Three.js / R3F', 'Figma'],
+    flat: 'React, React Router, React Native, Expo, Three.js / R3F, Figma',
   },
   {
     group: 'BACK-END & CLOUD',
@@ -59,10 +59,10 @@ export const PROJECTS: readonly Project[] = [
     link: 'https://github.com/Jake-Mayled/AI-Java-Evaluator',
   },
   {
-    name: 'Dementia Tester',
-    stack: 'KOTLIN · MOBILE',
+    name: 'AoCA Smart App',
+    stack: 'KOTLIN · AI · MOBILE',
     blurb:
-      'Cross-platform mobile app built with a university team to help assess and monitor cognitive ability in people at risk of or living with dementia. Cognitive assessments, activity tracking, appointment scheduling, and communication with healthcare providers, supporting early detection and ongoing care.',
+      'Agent-oriented Cognition-based Smart Assistant (AoCA). Cross-platform mobile app built with a university team to help assess and monitor cognitive ability. Cognitive assessments, activity tracking, appointment scheduling, and communication with healthcare providers, supporting early detection and ongoing care.',
   },
   {
     name: 'More Brewing',
@@ -81,7 +81,7 @@ export const JOBS: readonly Job[] = [
       'Working across the full stack in an agile team: a React Router web app, REST APIs, and embedded systems.',
   },
   {
-    years: 'Ongoing',
+    years: 'Feb 2026 - present',
     role: 'Founder',
     company: 'JBM Web',
     blurb:
