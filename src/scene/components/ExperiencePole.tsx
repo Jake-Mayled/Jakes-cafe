@@ -21,7 +21,7 @@ export function ExperiencePole(): ReactElement {
           width={2.15}
           height={0.38}
           castShadow
-          position={[0, 3.42 - i * 0.46, 0]}
+          position={[0, 3.42 - i * 0.46, 0.07]}
           rotationY={i % 2 ? -0.06 : 0.05}
           paintFront={(c, w, h) => {
             paintStreetSign(c, w, h, text);
