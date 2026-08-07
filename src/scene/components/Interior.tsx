@@ -86,7 +86,13 @@ export function Interior(): ReactElement {
           <boxGeometry args={[0.64, 0.07, 0.44]} />
         </mesh>
         {GRINDER_HEADS.map((px) => (
-          <mesh key={px} position={[px, 0.1, 0.21]} rotation={[Math.PI / 2, 0, 0]} material={brassMat} castShadow>
+          <mesh
+            key={px}
+            position={[px, 0.1, 0.21]}
+            rotation={[Math.PI / 2, 0, 0]}
+            material={brassMat}
+            castShadow
+          >
             <cylinderGeometry args={[0.028, 0.028, 0.09, 8]} />
           </mesh>
         ))}
@@ -99,7 +105,13 @@ export function Interior(): ReactElement {
       </mesh>
       <mesh position={[3.4, 1.49, -0.8]} castShadow receiveShadow>
         <cylinderGeometry args={[0.09, 0.06, 0.14, 10]} />
-        <meshStandardMaterial color={0x8a8a86} roughness={0.3} metalness={0.4} transparent opacity={0.8} />
+        <meshStandardMaterial
+          color={0x8a8a86}
+          roughness={0.3}
+          metalness={0.4}
+          transparent
+          opacity={0.8}
+        />
       </mesh>
       {CUPS.map(([x, lift]) => (
         <mesh key={x} position={[x, 1.15 + lift, -0.78]} castShadow receiveShadow>

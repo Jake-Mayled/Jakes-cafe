@@ -32,7 +32,10 @@ export function TwoSidedSign({
   onReady,
 }: TwoSidedSignProps): ReactElement {
   const texHeight = Math.round((640 * height) / width);
-  const frontTexture = useMemo(() => makeTexture(640, texHeight, paintFront), [texHeight, paintFront]);
+  const frontTexture = useMemo(
+    () => makeTexture(640, texHeight, paintFront),
+    [texHeight, paintFront],
+  );
   const backTexture = useMemo(
     () => makeTexture(640, texHeight, paintBack ?? paintFront),
     [texHeight, paintBack, paintFront],
@@ -56,7 +59,12 @@ export function TwoSidedSign({
         <planeGeometry args={[width, height]} />
         <meshBasicMaterial map={frontTexture} transparent />
       </mesh>
-      <mesh ref={backRef} rotation={[0, Math.PI, 0]} position={[0, 0, -0.006]} castShadow={castShadow}>
+      <mesh
+        ref={backRef}
+        rotation={[0, Math.PI, 0]}
+        position={[0, 0, -0.006]}
+        castShadow={castShadow}
+      >
         <planeGeometry args={[width, height]} />
         <meshBasicMaterial map={backTexture} transparent />
       </mesh>

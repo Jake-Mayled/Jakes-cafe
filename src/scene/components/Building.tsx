@@ -36,7 +36,10 @@ export function Building({ neonColor }: BuildingProps): ReactElement {
     tex.repeat.set(3, 1);
     return tex;
   }, []);
-  const roofMat = useMemo(() => M({ map: roofTexture, roughness: 0.55, metalness: 0.4 }), [roofTexture]);
+  const roofMat = useMemo(
+    () => M({ map: roofTexture, roughness: 0.55, metalness: 0.4 }),
+    [roofTexture],
+  );
 
   const openTexture = useMemo(
     () =>
@@ -73,7 +76,13 @@ export function Building({ neonColor }: BuildingProps): ReactElement {
       </mesh>
       <mesh position={[5.35, 2.3, -2.5]} receiveShadow>
         <boxGeometry args={[0.08, 2.6, 4.6]} />
-        <meshPhysicalMaterial color={0xdfe8e6} transparent opacity={0.55} roughness={0.55} metalness={0.05} />
+        <meshPhysicalMaterial
+          color={0xdfe8e6}
+          transparent
+          opacity={0.55}
+          roughness={0.55}
+          metalness={0.05}
+        />
       </mesh>
       {WALL_TRIM_Y.map((y) => (
         <mesh key={y} position={[5.35, y, -2.5]} material={wallTrimMat} receiveShadow>

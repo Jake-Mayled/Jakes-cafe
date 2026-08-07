@@ -65,11 +65,12 @@ export const SignPole = forwardRef<SignPoleHandle>(function SignPole(_props, ref
     },
   }));
 
-  const registerArrowSign = (section: SectionIndex) => (group: THREE.Group, meshes: readonly THREE.Mesh[]) => {
-    for (const mesh of meshes) {
-      entriesRef.current.push({ mesh, section, sign: group });
-    }
-  };
+  const registerArrowSign =
+    (section: SectionIndex) => (group: THREE.Group, meshes: readonly THREE.Mesh[]) => {
+      for (const mesh of meshes) {
+        entriesRef.current.push({ mesh, section, sign: group });
+      }
+    };
 
   return (
     <group position={[-5.4, 0.08, 2.6]}>
@@ -91,13 +92,23 @@ export const SignPole = forwardRef<SignPoleHandle>(function SignPole(_props, ref
               <circleGeometry args={[0.09, 16]} />
               <meshBasicMaterial color={color} transparent opacity={opacity} />
             </mesh>
-            <mesh position={[0, y + 0.05, 0.16]} rotation={[Math.PI / 2 - 0.3, 0, 0]} material={hoodMat}>
+            <mesh
+              position={[0, y + 0.05, 0.16]}
+              rotation={[Math.PI / 2 - 0.3, 0, 0]}
+              material={hoodMat}
+            >
               <cylinderGeometry args={[0.1, 0.11, 0.08, 12, 1, true]} />
             </mesh>
           </group>
         ))}
       </group>
-      <pointLight color={0x4dd17a} intensity={0.9} distance={3} decay={2} position={[0, 4.4, 0.5]} />
+      <pointLight
+        color={0x4dd17a}
+        intensity={0.9}
+        distance={3}
+        decay={2}
+        position={[0, 4.4, 0.5]}
+      />
 
       {/* crossing street blades, stacked (not intersecting) */}
       {BLADES.map(([text, ry, y]) => (

@@ -73,7 +73,12 @@ export function BackService(): ReactElement {
       <mesh position={[0.28, 3.0, -5.06]} material={conduitMat} receiveShadow>
         <cylinderGeometry args={[0.022, 0.022, 2.4, 8]} />
       </mesh>
-      <mesh position={[1.2, 4.55, -5.06]} rotation={[0, 0, Math.PI / 2]} material={conduitMat} receiveShadow>
+      <mesh
+        position={[1.2, 4.55, -5.06]}
+        rotation={[0, 0, Math.PI / 2]}
+        material={conduitMat}
+        receiveShadow
+      >
         <cylinderGeometry args={[0.022, 0.022, 2.2, 8]} />
       </mesh>
 
@@ -91,7 +96,13 @@ export function BackService(): ReactElement {
 
       {/* milk crates out back */}
       {CRATES.map(([x, y, z, ry, color]) => (
-        <mesh key={`${x}-${y}-${z}`} position={[x, y, z]} rotation={[0, ry, 0]} castShadow receiveShadow>
+        <mesh
+          key={`${x}-${y}-${z}`}
+          position={[x, y, z]}
+          rotation={[0, ry, 0]}
+          castShadow
+          receiveShadow
+        >
           <boxGeometry args={[0.42, 0.36, 0.42]} />
           <meshStandardMaterial color={color} roughness={0.8} />
         </mesh>

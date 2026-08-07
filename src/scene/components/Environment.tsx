@@ -72,7 +72,13 @@ export function Environment(): ReactElement {
         shadow-mapSize={[2048, 2048]}
       />
       <directionalLight color={0x8fc4d4} intensity={0.5} position={[14, 8, -14]} />
-      <pointLight color={0xffc98a} intensity={1.8} distance={10} decay={1.6} position={[1, 2.9, -2.4]} />
+      <pointLight
+        color={0xffc98a}
+        intensity={1.8}
+        distance={10}
+        decay={1.6}
+        position={[1, 2.9, -2.4]}
+      />
 
       {/* ground disc + shadow catcher */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]}>

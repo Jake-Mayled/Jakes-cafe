@@ -44,7 +44,13 @@ export const Magpie = forwardRef<MagpieHandle>(function Magpie(_props, ref): Rea
       <mesh ref={headRef} material={black} position={[0, 0.1, 0.11]} castShadow>
         <sphereGeometry args={[0.055, 12, 10]} />
       </mesh>
-      <mesh ref={beakRef} material={beakMat} position={[0, 0.1, 0.18]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+      <mesh
+        ref={beakRef}
+        material={beakMat}
+        position={[0, 0.1, 0.18]}
+        rotation={[Math.PI / 2, 0, 0]}
+        castShadow
+      >
         <coneGeometry args={[0.018, 0.06, 8]} />
       </mesh>
       <mesh material={white} position={[0, 0.02, -0.18]} rotation={[-0.25, 0, 0]} castShadow>

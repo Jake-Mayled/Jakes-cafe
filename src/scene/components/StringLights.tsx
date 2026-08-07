@@ -34,53 +34,55 @@ function computeRunPoints(p0: THREE.Vector3, p1: THREE.Vector3): THREE.Vector3[]
   return points;
 }
 
-export const StringLights = forwardRef<StringLightsHandle>(function StringLights(_props, ref): ReactElement {
-  const runPoints = useMemo(() => RUNS.map(([p0, p1]) => computeRunPoints(p0, p1)), []);
-  const lineGeometries = useMemo(
-    () => runPoints.map((points) => new THREE.BufferGeometry().setFromPoints(points)),
-    [runPoints],
-  );
-  const bulbGeometry = useMemo(() => new THREE.SphereGeometry(0.035, 8, 8), []);
-  const bulbPositions = useMemo(
-    () =>
-      runPoints.flatMap((points) => {
-        const positions: THREE.Vector3[] = [];
-        for (let i = 1; i < SEGMENTS; i += 2) {
-          const point = points[i];
-          if (!point) continue;
-          positions.push(new THREE.Vector3(point.x, point.y - 0.055, point.z));
-        }
-        return positions;
-      }),
-    [runPoints],
-  );
+export const StringLights = forwardRef<StringLightsHandle>(
+  function StringLights(_props, ref): ReactElement {
+    const runPoints = useMemo(() => RUNS.map(([p0, p1]) => computeRunPoints(p0, p1)), []);
+    const lineGeometries = useMemo(
+      () => runPoints.map((points) => new THREE.BufferGeometry().setFromPoints(points)),
+      [runPoints],
+    );
+    const bulbGeometry = useMemo(() => new THREE.SphereGeometry(0.035, 8, 8), []);
+    const bulbPositions = useMemo(
+      () =>
+        runPoints.flatMap((points) => {
+          const positions: THREE.Vector3[] = [];
+          for (let i = 1; i < SEGMENTS; i += 2) {
+            const point = points[i];
+            if (!point) continue;
+            positions.push(new THREE.Vector3(point.x, point.y - 0.055, point.z));
+          }
+          return positions;
+        }),
+      [runPoints],
+    );
 
-  const bulbsRef = useRef<BulbMesh[]>([]);
-  useImperativeHandle(ref, () => ({
-    get bulbs(): readonly BulbMesh[] {
-      return bulbsRef.current;
-    },
-  }));
+    const bulbsRef = useRef<BulbMesh[]>([]);
+    useImperativeHandle(ref, () => ({
+      get bulbs(): readonly BulbMesh[] {
+        return bulbsRef.current;
+      },
+    }));
 
-  return (
-    <>
-      {lineGeometries.map((geometry, i) => (
-        <threeLine key={i} geometry={geometry}>
-          <lineBasicMaterial color={0x3a2d26} />
-        </threeLine>
-      ))}
-      {bulbPositions.map((pos, i) => (
-        <mesh
-          key={i}
-          ref={(mesh): void => {
-            if (mesh) bulbsRef.current[i] = mesh as BulbMesh;
-          }}
-          position={[pos.x, pos.y, pos.z]}
-          geometry={bulbGeometry}
-        >
-          <meshBasicMaterial color={0xffd9a0} />
-        </mesh>
-      ))}
-    </>
-  );
-});
+    return (
+      <>
+        {lineGeometries.map((geometry, i) => (
+          <threeLine key={i} geometry={geometry}>
+            <lineBasicMaterial color={0x3a2d26} />
+          </threeLine>
+        ))}
+        {bulbPositions.map((pos, i) => (
+          <mesh
+            key={i}
+            ref={(mesh): void => {
+              if (mesh) bulbsRef.current[i] = mesh as BulbMesh;
+            }}
+            position={[pos.x, pos.y, pos.z]}
+            geometry={bulbGeometry}
+          >
+            <meshBasicMaterial color={0xffd9a0} />
+          </mesh>
+        ))}
+      </>
+    );
+  },
+);

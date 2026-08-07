@@ -22,18 +22,9 @@ export default tseslint.config(
       'prefer-const': 'error',
       eqeqeq: ['error', 'always'],
       '@typescript-eslint/no-non-null-assertion': 'error',
-      '@typescript-eslint/explicit-function-return-type': [
-        'error',
-        { allowExpressions: true },
-      ],
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        { prefer: 'type-imports' },
-      ],
-      '@typescript-eslint/restrict-template-expressions': [
-        'error',
-        { allowNumber: true },
-      ],
+      '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
+      '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
     },
   },

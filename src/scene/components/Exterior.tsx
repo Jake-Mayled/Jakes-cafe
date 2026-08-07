@@ -97,7 +97,10 @@ export const Exterior = forwardRef<ExteriorHandle, ExteriorProps>(function Exter
   const chairMat = useMemo(() => M({ color: 0xc8a24a, roughness: 0.6 }), []);
   const chairLegMat = useMemo(() => M({ color: 0x2e3a36, metalness: 0.5, roughness: 0.4 }), []);
   const darkMat = useMemo(() => M({ color: 0x2a241e, roughness: 0.9 }), []);
-  const dragFaceMat = useMemo(() => M({ map: makeTexture(320, 400, paintDragBoard), roughness: 0.9 }), []);
+  const dragFaceMat = useMemo(
+    () => M({ map: makeTexture(320, 400, paintDragBoard), roughness: 0.9 }),
+    [],
+  );
   const dragFrontMats = useMemo(
     () => [darkMat, darkMat, darkMat, darkMat, dragFaceMat, darkMat],
     [darkMat, dragFaceMat],
@@ -187,10 +190,22 @@ export const Exterior = forwardRef<ExteriorHandle, ExteriorProps>(function Exter
 
       {/* "click & drag" A-frame board (tops joined, feet splayed) */}
       <group position={[-4.35, 0.08, 2.85]} rotation={[0, -0.23, 0]}>
-        <mesh position={[0, 0.72, 0.19]} rotation={[-0.28, 0, 0]} material={dragFrontMats} castShadow receiveShadow>
+        <mesh
+          position={[0, 0.72, 0.19]}
+          rotation={[-0.28, 0, 0]}
+          material={dragFrontMats}
+          castShadow
+          receiveShadow
+        >
           <boxGeometry args={[1.05, 1.3, 0.05]} />
         </mesh>
-        <mesh position={[0, 0.72, -0.19]} rotation={[0.28, 0, 0]} material={darkMat} castShadow receiveShadow>
+        <mesh
+          position={[0, 0.72, -0.19]}
+          rotation={[0.28, 0, 0]}
+          material={darkMat}
+          castShadow
+          receiveShadow
+        >
           <boxGeometry args={[1.05, 1.3, 0.05]} />
         </mesh>
         <mesh position={[0, 1.38, 0]} castShadow>
@@ -216,7 +231,13 @@ export const Exterior = forwardRef<ExteriorHandle, ExteriorProps>(function Exter
         <planeGeometry args={[2.0, 0.62]} />
         <meshBasicMaterial map={neonTexture.texture} transparent />
       </mesh>
-      <pointLight color={neonColor} intensity={2.0} distance={5} decay={2} position={[-4.2, 2.05, -3.6]} />
+      <pointLight
+        color={neonColor}
+        intensity={2.0}
+        distance={5}
+        decay={2}
+        position={[-4.2, 2.05, -3.6]}
+      />
       <mesh position={[-3.75, 1.05, -3.6]} castShadow receiveShadow>
         <boxGeometry args={[0.5, 0.08, 1.6]} />
         <meshStandardMaterial color={0x8a6a4a} roughness={0.7} />
